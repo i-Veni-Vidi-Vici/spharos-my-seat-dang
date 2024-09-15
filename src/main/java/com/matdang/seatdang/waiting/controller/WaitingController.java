@@ -111,66 +111,66 @@ public class WaitingController {
     /**
      * test 실행시 주석 필요
      */
-    @PostConstruct
-    public void initData() throws InterruptedException {
-        StoreVo storeVo = new StoreVo(1L, "달콤커피", StoreType.CUSTOM, "서울시강남구");
-        storeRepository.save(Store.builder()
-                .storeName("마싯당")
-                .storeSetting(StoreSetting.builder()
-                        .waitingPeopleCount(10)
-                        .waitingStatus(com.matdang.seatdang.store.vo.WaitingStatus.CLOSE)
-                        .waitingTime(WaitingTime.builder()
-                                .waitingOpenTime(LocalTime.of(9, 0))
-                                .waitingCloseTime(LocalTime.of(22, 0))
-                                .build())
-                        .build())
-                .build());
-
-        storeRepository.save(Store.builder()
-                .storeName("마싯당-스토리지")
-                .storeSetting(StoreSetting.builder()
-                        .waitingPeopleCount(10)
-                        .waitingStatus(com.matdang.seatdang.store.vo.WaitingStatus.OPEN)
-                        .waitingTime(WaitingTime.builder()
-                                .waitingOpenTime(LocalTime.of(9, 0))
-                                .waitingCloseTime(LocalTime.of(22, 0))
-                                .build())
-                        .build())
-                .build());
-
-        StoreOwner storeOwner = StoreOwner.builder()
-                .memberEmail("storeowner@naver.com")
-                .joinDate(LocalDate.now())
-                .memberName("Store Owner Name")
-                .memberPassword(bCryptPasswordEncoder.encode("1234"))
-                .memberPhone("010-1234-5678")
-                .memberRole(MemberRole.ROLE_STORE_OWNER)
-                .memberStatus(MemberStatus.APPROVED)
-                .businessLicenseImage("business_license.jpg")
-                .businessLicense("123-45-67890")
-                .bankAccountCopy("bank_account.jpg")
-                .bankAccount("123-456-789")
-                .storeOwnerProfileImage("profile.jpg")
-                .store(storeVo)
-                .build();
-        memberRepository.save(storeOwner);
-
-        Customer customer = Customer.builder()
-                .memberEmail("customer@naver.com")
-                .joinDate(LocalDate.now())
-                .memberName("customer")
-                .memberPassword(bCryptPasswordEncoder.encode("1234"))
-                .memberPhone("010-1234-5678")
-                .memberRole(MemberRole.ROLE_CUSTOMER)
-                .memberStatus(MemberStatus.APPROVED)
-                .imageGenLeft(5)
-                .customerGender(Gender.MALE)
-                .customerBirthday(LocalDate.of(1990, 1, 1))
-                .customerNickName("미식가")
-                .customerProfileImage("profile.jpg")
-                .build();
-        //when
-        memberRepository.save(customer);
+//    @PostConstruct
+//    public void initData() throws InterruptedException {
+//        StoreVo storeVo = new StoreVo(1L, "달콤커피", StoreType.CUSTOM, "서울시강남구");
+//        storeRepository.save(Store.builder()
+//                .storeName("마싯당")
+//                .storeSetting(StoreSetting.builder()
+//                        .waitingPeopleCount(10)
+//                        .waitingStatus(com.matdang.seatdang.store.vo.WaitingStatus.CLOSE)
+//                        .waitingTime(WaitingTime.builder()
+//                                .waitingOpenTime(LocalTime.of(9, 0))
+//                                .waitingCloseTime(LocalTime.of(22, 0))
+//                                .build())
+//                        .build())
+//                .build());
+//
+//        storeRepository.save(Store.builder()
+//                .storeName("마싯당-스토리지")
+//                .storeSetting(StoreSetting.builder()
+//                        .waitingPeopleCount(10)
+//                        .waitingStatus(com.matdang.seatdang.store.vo.WaitingStatus.OPEN)
+//                        .waitingTime(WaitingTime.builder()
+//                                .waitingOpenTime(LocalTime.of(9, 0))
+//                                .waitingCloseTime(LocalTime.of(22, 0))
+//                                .build())
+//                        .build())
+//                .build());
+//
+//        StoreOwner storeOwner = StoreOwner.builder()
+//                .memberEmail("storeowner@naver.com")
+//                .joinDate(LocalDate.now())
+//                .memberName("Store Owner Name")
+//                .memberPassword(bCryptPasswordEncoder.encode("1234"))
+//                .memberPhone("010-1234-5678")
+//                .memberRole(MemberRole.ROLE_STORE_OWNER)
+//                .memberStatus(MemberStatus.APPROVED)
+//                .businessLicenseImage("business_license.jpg")
+//                .businessLicense("123-45-67890")
+//                .bankAccountCopy("bank_account.jpg")
+//                .bankAccount("123-456-789")
+//                .storeOwnerProfileImage("profile.jpg")
+//                .store(storeVo)
+//                .build();
+//        memberRepository.save(storeOwner);
+//
+//        Customer customer = Customer.builder()
+//                .memberEmail("customer@naver.com")
+//                .joinDate(LocalDate.now())
+//                .memberName("customer")
+//                .memberPassword(bCryptPasswordEncoder.encode("1234"))
+//                .memberPhone("010-1234-5678")
+//                .memberRole(MemberRole.ROLE_CUSTOMER)
+//                .memberStatus(MemberStatus.APPROVED)
+//                .imageGenLeft(5)
+//                .customerGender(Gender.MALE)
+//                .customerBirthday(LocalDate.of(1990, 1, 1))
+//                .customerNickName("미식가")
+//                .customerProfileImage("profile.jpg")
+//                .build();
+//        //when
+//        memberRepository.save(customer);
 
 //        {
 //            long i = 1;
@@ -220,5 +220,5 @@ public class WaitingController {
 //                }
 //            }
 //        }
-    }
+//    }
 }
