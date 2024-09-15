@@ -87,7 +87,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="waiting : ${waitings}">
+                <tr th:each="waiting, stat : ${waitings}">
                     <td th:text="${waiting.waitingNumber}"></td>
                     <td th:text="${waiting.waitingOrder}"></td>
                     <td th:text="${waiting.customerPhone}"></td>
@@ -98,7 +98,8 @@
                     <td th:if="${status >= 2}" th:text="${{waiting.canceledTime}}"></td>
                     <td th:if="${status == 0}">
                         <div class="row-buttons">
-                            <form th:if="${waiting.waitingOrder == 1}" th:action="@{/store-owner/waiting}"
+<!--                            <form th:if="${waiting.waitingOrder == 1}" th:action="@{/store-owner/waiting}"-->
+                            <form th:if="${currentPage == 0 and stat.index == 0}" th:action="@{/store-owner/waiting}"
                                   method="post">
                                 <input type="hidden" name="id" th:value="${waiting.id}"/>
                                 <input type="hidden" name="storeId" th:value="${storeId}"/>

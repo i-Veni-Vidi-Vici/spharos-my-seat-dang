@@ -21,3 +21,9 @@ SELECT
     CONCAT('010-', LPAD(FLOOR(RAND() * 10000), 4, '0'), '-', LPAD(FLOOR(RAND() * 10000), 4, '0')) AS customer_phone, -- 고객 전화번호 (랜덤하게 생성)
     ELT(FLOOR(RAND() * 5) + 1, 'CUSTOMER_CANCELED', 'NO_SHOW', 'SHOP_CANCELED', 'VISITED', 'WAITING') AS waiting_status -- 대기 상태 (랜덤하게 선택)
 FROM cte;
+
+select id, waiting_order
+from waiting
+where store_id ='1' and waiting_status='WAITING'
+order by waiting_order;
+
