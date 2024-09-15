@@ -27,3 +27,18 @@ from waiting
 where store_id ='1' and waiting_status='WAITING'
 order by waiting_order;
 
+ALTER TABLE waiting MODIFY id BIGINT NOT NULL;
+ALTER TABLE waiting MODIFY id BIGINT NOT NULL AUTO_INCREMENT;
+ALTER TABLE waiting AUTO_INCREMENT = 1000001;
+SHOW TABLE STATUS LIKE 'waiting';
+SHOW CREATE TABLE waiting;
+
+ALTER TABLE waiting DROP PRIMARY KEY;
+
+
+select id,waiting_number
+from waiting
+where waiting_status='WAITING' and customer_id=3
+order by created_date desc ;
+
+
